@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Simulation rollouts of Residual Flow Steering (RFS)">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simulation Rollouts - RFS</title>
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <style>
+    body { background-color: #fafafa; }
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    details {
+      margin-bottom: 2rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .video-container { cursor: pointer; transition: transform 0.2s ease; }
+    .video-container:hover { transform: scale(1.03); }
+    .video-container video {
+      width: 100%; border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .modal video { display: block; margin: 0 auto; border-radius: 10px; }
+  </style>
+</head>
+
+<body>
+<section class="hero is-light">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-2">Simulation Rollout Results</h1>
+    <h2 class="subtitle">Dexterous Grasping Tasks Comparison</h2>
+    <a href="index.html" class="button is-link is-light mt-3">← Back to Main Page</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- ========== Our Method (Hand + Finger Motion) ========== -->
+    <details open>
+        <summary>🖐️ RFS-Finger (Ours)</summary>
+
+        <div class="columns is-variable is-4 is-vcentered" style="align-items: stretch;">
+            <!-- Video 1 -->
+            <div class="column is-half">
+            <div class="video-wrapper">
+                <div class="video-container" onclick="openModal('video_handfinger1')">
+                <video src="./static/videos/bunny01.mp4" muted loop playsinline autoplay></video>
+                </div>
+                <p class="has-text-grey mt-2">
+            </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="column is-half">
+            <div class="video-wrapper">
+                <div class="video-container" onclick="openModal('video_handfinger2')">
+                <video src="./static/videos/tomato_soup_can01.mp4" muted loop playsinline autoplay></video>
+                </div>
+                <p class="has-text-grey mt-2">
+            </div>
+            </div>
+        </div>
+    </details>
+
+
+    <!-- ========== PCA Baseline ========== -->
+    <details>
+      <summary>📊 PCA Baseline</summary>
+      <div class="columns is-variable is-4 is-vcentered" style="align-items: stretch;">
+            <!-- Video 1 -->
+            <div class="column is-half">
+            <div class="video-wrapper">
+                <div class="video-container" onclick="openModal('video_handfinger1')">
+                <video src="./static/videos/pca_bunny01.mp4" muted loop playsinline autoplay></video>
+                </div>
+                <p class="has-text-grey mt-2">
+            </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="column is-half">
+            <div class="video-wrapper">
+                <div class="video-container" onclick="openModal('video_handfinger2')">
+                <video src="./static/videos/pca_tomato_soup_can01" muted loop playsinline autoplay></video>
+                </div>
+                <p class="has-text-grey mt-2">
+            </div>
+            </div>
+        </div>
+    </details>
+
+    <!-- ========== relative joint pose Baseline ========== -->
+    <details>
+      <summary>🧠 relative joint pose Baseline</summary>
+       <div class="columns is-variable is-4 is-vcentered" style="align-items: stretch;">
+            <!-- Video 1 -->
+            <div class="column is-half">
+            <div class="video-wrapper">
+                <div class="video-container" onclick="openModal('video_handfinger1')">
+                <video src="./static/videos/bunny_rel01.mp4" muted loop playsinline autoplay></video>
+                </div>
+                <p class="has-text-grey mt-2">
+            </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="column is-half">
+            <div class="video-wrapper">
+                <div class="video-container" onclick="openModal('video_handfinger2')">
+                <video src="./static/videos/tomato_soup_can_rel01.mp4" muted loop playsinline autoplay></video>
+                </div>
+                <p class="has-text-grey mt-2">
+            </div>
+            </div>
+        </div>
+    </details>
+
+  </div>
+</section>
+
+<!-- Modal for full video view -->
+<div id="videoModal" class="modal">
+  <div class="modal-background" onclick="closeModal()"></div>
+  <div class="modal-content">
+    <video id="modalVideo" controls autoplay style="width: 100%;"></video>
+  </div>
+  <button class="modal-close is-large" aria-label="close" onclick="closeModal()"></button>
+</div>
+
+<script>
+function openModal(videoId) {
+  const videoSrc = document.querySelector(`[onclick="openModal('${videoId}')"] video`).src;
+  const modal = document.getElementById('videoModal');
+  const modalVideo = document.getElementById('modalVideo');
+  modalVideo.src = videoSrc;
+  modal.classList.add('is-active');
+}
+function closeModal() {
+  const modal = document.getElementById('videoModal');
+  const modalVideo = document.getElementById('modalVideo');
+  modal.classList.remove('is-active');
+  modalVideo.pause();
+  modalVideo.src = "";
+}
+</script>
+</body>
+</html>
