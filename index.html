@@ -67,6 +67,40 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Abstract</h2>
+    <div class="content has-text-justified">
+      <p>
+        We propose an efficient reinforcement learning (RL) framework for fast adaptation of pretrained generative policies. Specifically, our proposed methodology - residual flow steering, instantiates an efficient RL technique that quickly adapts a pretrained flow-matching model by steering it jointly by optimizing a policy for selecting both a latent noise distribution and a residual action. Doing so allows policies to perform both local (residual actions) and global exploration (latent noise),  data-efficient adaptation. We demonstrate that this technique is effective for dexterous manipulation problems, serving both as a tool to pretrain behaviors in simulation and efficiently finetune them in the real world.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Image Section -->
+<!-- Figure: RFS Overview -->
+<!-- Figure: RFS Overview -->
+<section class="section">
+  <div class="container is-max-desktop has-text-centered">
+    <figure class="image" style="display: flex; justify-content: center;">
+      <img src="./static/images/flow_explain.png" 
+           alt="Overview of the Residual Flow Steering (RFS) framework" 
+           style="max-width: 80%; height: auto; margin: 0 auto;">
+    </figure>
+
+    <figcaption class="has-text-grey mt-3" style="text-align: justify; max-width: 80%; margin: 0 auto;">
+      <em>Figure 1:</em> Overview of <strong>Residual Flow Steering (RFS)</strong>. 
+      In ordinary flow matching, noise <em>a₀</em> sampled from a normal distribution is pushed through 
+      the function <em>Push(s, a₀, v<sub>θ</sub>)</em> to generate an action <em>a<sub>b</sub></em>. 
+      RFS instead learns the initial noise distribution and introduces a residual action 
+      <em>a<sub>r</sub></em>, enabling direct shifts beyond the flow matching manifold. 
+      This allows actions to be steered toward the desired distribution using the residual policy.
+    </figcaption>
+  </div>
+</section>
+
 
 <div class="navbar-item has-dropdown is-hoverable">
   <a class="navbar-link">Rollouts</a>
