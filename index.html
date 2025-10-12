@@ -113,96 +113,124 @@
     </div>
 
     <style>
-      /* 🔹 Make the summary text larger and styled */
-      details summary {
-        cursor: pointer;
-        font-weight: 700;
-        font-size: 1.4rem;      /* Larger text */
-        padding: 0.6rem 1rem;
-        border-radius: 6px;
-        background-color: #f7f9ff; /* Light background for emphasis */
-        transition: background-color 0.2s ease;
-      }
-      details summary:hover {
-        background-color: #e9efff;
-      }
-    </style>
+  /* ✨ Shared styling for all video sections */
+  details summary {
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
 
-    <!-- ========== RFS-Finger (Ours) ========== -->
-    <details open>
-      <summary>🖐️ RFS-Finger (Ours)</summary>
+  /* Center the whole content inside details */
+  details .columns {
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding-top: 10px;
+  }
 
-      <div class="columns is-variable is-4 is-vcentered" style="align-items: stretch;">
-        <div class="column is-half">
-          <div class="video-wrapper">
-            <div class="video-container" onclick="openModal('video_handfinger1')">
-              <video src="./static/videos/bunny01.mp4" muted loop playsinline autoplay></video>
-            </div>
-            <p class="has-text-grey mt-2"></p>
-          </div>
-        </div>
+  /* Limit video width to bar width */
+  .video-container video {
+    width: 80%;              /* within the bar width */
+    max-width: 480px;        /* max size for desktop */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
 
-        <div class="column is-half">
-          <div class="video-wrapper">
-            <div class="video-container" onclick="openModal('video_handfinger2')">
-              <video src="./static/videos/tomato_soup_can01.mp4" muted loop playsinline autoplay></video>
-            </div>
-            <p class="has-text-grey mt-2"></p>
-          </div>
-        </div>
-      </div>
-    </details>
+  /* Center each video wrapper */
+  .video-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+</style>
 
-    <!-- ========== PCA Baseline ========== -->
-    <details>
-      <summary>📊 PCA Baseline</summary>
-      <div class="columns is-variable is-4 is-vcentered" style="align-items: stretch;">
-        <div class="column is-half">
-          <div class="video-wrapper">
-            <div class="video-container" onclick="openModal('video_pca1')">
-              <video src="./static/videos/pca_bunny01.mp4" muted loop playsinline autoplay></video>
-            </div>
-            <p class="has-text-grey mt-2"></p>
-          </div>
-        </div>
-
-        <div class="column is-half">
-          <div class="video-wrapper">
-            <div class="video-container" onclick="openModal('video_pca2')">
-              <video src="./static/videos/pca_tomato_soup_can01" muted loop playsinline autoplay></video>
-            </div>
-            <p class="has-text-grey mt-2"></p>
+<section>
+  <!-- ========== RFS-Finger (Ours) ========== -->
+  <details open>
+    <summary>🖐️ RFS-Finger (Ours)</summary>
+    <div class="columns">
+      <div class="column has-text-centered">
+        <div class="video-wrapper">
+          <div class="video-container" onclick="openModal('video_handfinger1')">
+            <video src="./static/videos/bunny01.mp4" muted loop playsinline autoplay></video>
           </div>
         </div>
       </div>
-    </details>
-
-    <!-- ========== Relative Joint Pose Baseline ========== -->
-    <details>
-      <summary>🧠 Relative Joint Pose Baseline</summary>
-      <div class="columns is-variable is-4 is-vcentered" style="align-items: stretch;">
-        <div class="column is-half">
-          <div class="video-wrapper">
-            <div class="video-container" onclick="openModal('video_rel1')">
-              <video src="./static/videos/bunny_rel01.mp4" muted loop playsinline autoplay></video>
-            </div>
-            <p class="has-text-grey mt-2"></p>
-          </div>
-        </div>
-
-        <div class="column is-half">
-          <div class="video-wrapper">
-            <div class="video-container" onclick="openModal('video_rel2')">
-              <video src="./static/videos/tomato_soup_can_rel01.mp4" muted loop playsinline autoplay></video>
-            </div>
-            <p class="has-text-grey mt-2"></p>
+      <div class="column has-text-centered">
+        <div class="video-wrapper">
+          <div class="video-container" onclick="openModal('video_handfinger2')">
+            <video src="./static/videos/tomato_soup_can01.mp4" muted loop playsinline autoplay></video>
           </div>
         </div>
       </div>
-    </details>
+    </div>
+  </details>
 
-  </div>
+  <!-- ========== PCA Baseline ========== -->
+  <details>
+    <summary>🎛️ PCA Baseline</summary>
+    <div class="columns">
+      <div class="column has-text-centered">
+        <div class="video-wrapper">
+          <div class="video-container" onclick="openModal('video_pca1')">
+            <video src="./static/videos/pca_bunny01.mp4" muted loop playsinline autoplay></video>
+          </div>
+        </div>
+      </div>
+      <div class="column has-text-centered">
+        <div class="video-wrapper">
+          <div class="video-container" onclick="openModal('video_pca2')">
+            <video src="./static/videos/pca_tomato_soup_can01.mp4" muted loop playsinline autoplay></video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- ========== Relative Joint Pose Baseline ========== -->
+  <details>
+    <summary>🧠 Relative Joint Pose Baseline</summary>
+    <div class="columns">
+      <div class="column has-text-centered">
+        <div class="video-wrapper">
+          <div class="video-container" onclick="openModal('video_rel1')">
+            <video src="./static/videos/bunny_rel01.mp4" muted loop playsinline autoplay></video>
+          </div>
+        </div>
+      </div>
+      <div class="column has-text-centered">
+        <div class="video-wrapper">
+          <div class="video-container" onclick="openModal('video_rel2')">
+            <video src="./static/videos/tomato_soup_can_rel01.mp4" muted loop playsinline autoplay></video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- ========== VQ-VAE Baseline ========== -->
+  <details>
+    <summary>🧩 VQ-VAE Baseline</summary>
+    <div class="columns">
+      <div class="column has-text-centered">
+        <div class="video-wrapper">
+          <div class="video-container" onclick="openModal('video_vqvae1')">
+            <video src="./static/videos/vqvae_bunny01.mp4" muted loop playsinline autoplay></video>
+          </div>
+        </div>
+      </div>
+      <div class="column has-text-centered">
+        <div class="video-wrapper">
+          <div class="video-container" onclick="openModal('video_vqvae2')">
+            <video src="./static/videos/vqvae_tomato_soup_can01.mp4" muted loop playsinline autoplay></video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </details>
 </section>
+
 
 
 
@@ -238,7 +266,7 @@
     <details open>
       <summary>🦾 RFS (Ours)</summary>
 
-      <div class="columns is-multiline is-variable is-4 is-vcentered" style="align-items: stretch;">
+      <div class="columns is-multiline is-variable is-4 is-vcentered" style="align-items: stretch; justify-content: center; text-align: center;">
         
         <!-- Video 1 -->
         <div class="column is-one-quarter">
@@ -306,7 +334,7 @@
     <!-- ========== Zero Sim2Real Baseline ========== -->
     <details>
       <summary>💡 Zero Sim2Real Baseline</summary>
-       <div class="columns is-multiline is-variable is-4 is-vcentered" style="align-items: stretch;">
+       <div class="columns is-multiline is-variable is-4 is-vcentered" style="align-items: stretch; justify-content: center; text-align: center;">
         
         <!-- Video 1 -->
         <div class="column is-one-quarter">
