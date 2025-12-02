@@ -13,114 +13,336 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
+
+  <style>
+    /* Collapsible Section Styling */
+    details > summary {
+      background-color: #3273dc;
+      color: white;
+      padding: 10px 15px;
+      font-weight: 600;
+      border-radius: 6px;
+      margin: 20px 0 15px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    details > summary::marker {
+      display: none;
+    }
+    summary::after {
+      content: "+";
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    details[open] summary::after {
+      content: "–";
+    }
+
+    /* Inner content box */
+    .details-content {
+      padding: 20px;
+      background: #fafafa;
+      border: 1px solid #ddd;
+      border-top: none;
+      border-radius: 0 0 6px 6px;
+    }
+
+    /* Make videos smaller */
+    .video-small {
+      width: 100%;         /* adjust this for smaller/larger videos */
+      margin: 0 auto;
+      display: block;
+    }
+
+     .video-smaller {
+      width: 50%;         /* adjust this for smaller/larger videos */
+      margin: 0 auto;
+      display: block;
+    }
+  </style>
+
 </head>
 
 <body>
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Placement Rollout</h2>
 
-    <div class="card">
-      <header class="card-header">
-        <p class="card-header-title">
-          RFS Placement Rollout Results
-        </p>
-      </header>
+    <!-- ⭐ Title -->
+    <h2 class="title is-3" style="display:flex; align-items:center; gap:10px;">
+      📦 Placement Rollout
+    </h2>
 
-      <div class="card-content">
-        <div class="content">
+    <!-- ⭐ One Big Box -->
+    <div class="box" style="padding:25px;">
 
-            <div style="
-              background-color:#3273dc; 
-              color:white; 
-              padding:10px 15px; 
-              font-weight:600; 
-              border-radius:6px; 
-              margin-bottom:20px;">
-            RFS Placement Rollouts
+      <!-- 🔵 RFS Placement Rollouts -->
+      <div style="
+        background-color:#3273dc;
+        color:white;
+        padding:10px 15px;
+        font-weight:600;
+        border-radius:6px;
+        margin-bottom:20px;">
+        RFS Placement Rollouts
+      </div>
+
+      <!-- 4 videos in SAME ROW -->
+      <div class="details-content" style="margin-bottom:30px;">
+        <div class="columns">
+
+          <div class="column is-one-quarter">
+            <video class="video-small" autoplay muted loop playsinline>
+              <source src="./static/videos/placment/episode_71.mp4" type="video/mp4">
+            </video>
           </div>
-         
 
-          <!-- 2×2 video grid -->
-          <div class="columns is-multiline">
+          <div class="column is-one-quarter">
+            <video class="video-small" autoplay muted loop playsinline>
+              <source src="./static/videos/placment/episode_73.mp4" type="video/mp4">
+            </video>
+          </div>
 
-            <!-- Video 1 -->
-            <div class="column is-half">
-              <video width="100%" controls>
-                <source src="./static/videos/placment/episode_71.mp4" type="video/mp4">
-               
-              </video>
-            </div>
+          <div class="column is-one-quarter">
+            <video class="video-small" autoplay muted loop playsinline>
+              <source src="./static/videos/placment/episode_76.mp4" type="video/mp4">
+            </video>
+          </div>
 
-            <!-- Video 2 -->
-            <div class="column is-half">
-              <video width="100%" controls>
-                <source src="./static/videos/placment/episode_73.mp4" type="video/mp4">
-                
-              </video>
-            </div>
-
-            <!-- Video 3 -->
-            <div class="column is-half">
-              <video width="100%" controls>
-                <source src="./static/videos/placment/episode_76.mp4" type="video/mp4">
-             
-              </video>
-            </div>
-
-            <!-- Video 4 -->
-            <div class="column is-half">
-              <video width="100%" controls>
-                <source src="./static/videos/placment/episode_90.mp4" type="video/mp4">
-              
-              </video>
-            </div>
-
-          </div> <!-- end grid -->
+          <div class="column is-one-quarter">
+            <video class="video-small" autoplay muted loop playsinline>
+              <source src="./static/videos/placment/episode_90.mp4" type="video/mp4">
+            </video>
+          </div>
 
         </div>
       </div>
-   
 
-      <div class="card-content">
-        <div class="content">
 
-            <div style="
-              background-color:#3273dc; 
-              color:white; 
-              padding:10px 15px; 
-              font-weight:600; 
-              border-radius:6px; 
-              margin-bottom:20px;">
-            Typical failure Cases for Baselines
-          </div>
-         
+      <!-- 🔵 Collapsible Failures -->
+      <details>
+        <summary>Typical Failure Cases of Baselines</summary>
 
-          <!-- 2×2 video grid -->
-          <div class="columns is-multiline">
+        <div class="details-content">
+          <div class="columns">
 
-            <!-- Video 1 -->
             <div class="column is-half">
-              <video width="100%" controls>
+              <video class="video-smaller" autoplay muted loop playsinline>
                 <source src="./static/videos/placment/failure_episode_10.mp4" type="video/mp4">
-               
               </video>
             </div>
 
-            <!-- Video 2 -->
             <div class="column is-half">
-              <video width="100%" controls>
+              <video class="video-smaller" autoplay muted loop playsinline>
                 <source src="./static/videos/placment/failure_episode_37.mp4" type="video/mp4">
-                
               </video>
             </div>
 
-           
+          </div>
+        </div>
+
+      </details>
+
+    </div> <!-- end big box -->
+
+  </div>
+</section>
+
+
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- ⭐ Title -->
+    <h2 class="title is-3" style="display:flex; align-items:center; gap:10px;">
+      🧺 Packing Rollout
+    </h2>
+
+    <!-- ⭐ One Big Box -->
+    <div class="box" style="padding:25px;">
+
+      <!-- 🔵 RFS Packing Rollouts -->
+      <div style="
+        background-color:#3273dc;
+        color:white;
+        padding:10px 15px;
+        font-weight:600;
+        border-radius:6px;
+        margin-bottom:20px;">
+        RFS Packing Rollouts
+      </div>
+
+      <div class="details-content" style="margin-bottom:30px;">
+        <div class="columns">
+
+          <div class="column is-one-quarter">
+            <video class="video-small" autoplay muted loop playsinline>
+              <source src="./static/videos/pack/episode_1.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="column is-one-quarter">
+            <video class="video-small" autoplay muted loop playsinline>
+              <source src="./static/videos/pack/episode_12.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="column is-one-quarter">
+            <video class="video-small" autoplay muted loop playsinline>
+              <source src="./static/videos/pack/episode_24.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="column is-one-quarter">
+            <video class="video-small" autoplay muted loop playsinline>
+              <source src="./static/videos/pack/episode_8.mp4" type="video/mp4">
+            </video>
+          </div>
+
         </div>
       </div>
-    </div>
 
+      <!-- 🔵 Collapsible Failures -->
+      <details>
+        <summary>Typical Failure Cases of Baselines</summary>
+
+        <div class="details-content">
+          <div class="columns">
+
+            <div class="column is-half">
+              <video class="video-smaller" autoplay muted loop playsinline>
+                <source src="./static/videos/pack/episode_14.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="column is-half">
+              <video class="video-smaller" autoplay muted loop playsinline>
+                <source src="./static/videos/pack/episode_16.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <!-- <div class="column is-one-quarter">
+              <video class="video-small" autoplay muted loop playsinline>
+                <source src="./static/videos/pack/episode_0.mp4" type="video/mp4">
+              </video>
+            </div> -->
+
+            <!-- <div class="column is-one-quarter">
+              <video class="video-smaller" autoplay muted loop playsinline>
+                <source src="./static/videos/pack/episode_17.mp4" type="video/mp4">
+              </video>
+            </div>
+
+          </div> -->
+        </div>
+      </details>
+
+    </div> <!-- end big box -->
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- ⭐ Title -->
+    <h2 class="title is-3" style="display:flex; align-items:center; gap:10px;">
+      🫳 Push-to-Grasp Rollout
+    </h2>
+
+    <!-- ⭐ One Big Box -->
+    <div class="box" style="padding:25px;">
+
+      <!-- 🔵 RFS Packing Rollouts -->
+      <div style="
+        background-color:#3273dc;
+        color:white;
+        padding:10px 15px;
+        font-weight:600;
+        border-radius:6px;
+        margin-bottom:20px;">
+        RFS Packing Rollouts
+      </div>
+
+      <div class="details-content" style="margin-bottom:30px;">
+        <div class="columns">
+
+          <div class="column is-one-quarter">
+            <video class="video-small" autoplay muted loop playsinline>
+              <source src="./static/videos/push2grasp/episode_23.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="column is-one-quarter">
+            <video class="video-small" autoplay muted loop playsinline>
+              <source src="./static/videos/push2grasp/episode_4.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="column is-one-quarter">
+            <video class="video-small" autoplay muted loop playsinline>
+              <source src="./static/videos/push2grasp/episode_29.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="column is-one-quarter">
+            <video class="video-small" autoplay muted loop playsinline>
+              <source src="./static/videos/push2grasp/episode_5.mp4" type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 🔵 Collapsible Failures -->
+      <details>
+        <summary>Typical Failure Cases of Baselines</summary>
+
+        <div class="details-content">
+          <div class="columns">
+
+            <div class="column is-half">
+              <video class="video-smaller" autoplay muted loop playsinline>
+                <source src="./static/videos/push2grasp/episode_11.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="column is-half">
+              <video class="video-smaller" autoplay muted loop playsinline>
+                <source src="./static/videos/push2grasp/episode_0.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <!-- <div class="column is-one-quarter">
+              <video class="video-small" autoplay muted loop playsinline>
+                <source src="./static/videos/pack/episode_0.mp4" type="video/mp4">
+              </video>
+            </div> -->
+
+            <!-- <div class="column is-one-quarter">
+              <video class="video-smaller" autoplay muted loop playsinline>
+                <source src="./static/videos/pack/episode_17.mp4" type="video/mp4">
+              </video>
+            </div>
+
+          </div> -->
+        </div>
+      </details>
+
+    </div> <!-- end big box -->
 
   </div>
 </section>
